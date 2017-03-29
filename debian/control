@@ -1,7 +1,7 @@
 Source: tuquito-software-manager
 Section: admin
 Priority: optional
-Maintainer: Mario Colque <mario@tuquito.org.ar>
+Maintainer: Emmi Linux <emmilinux@emmilinux.org>
 Build-Depends: debhelper (>= 5)
 Standards-Version: 3.7.2
 
