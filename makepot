@@ -1,5 +1,5 @@
 #!/bin/bash
-xgettext --language=Python --keyword=_ --output=po/tuquito-software-manager.pot usr/lib/tuquito/tuquito-software-manager/*.py
+xgettext --language=Python --keyword=_ --output=po/emmi-software-manager.pot usr/lib/emmi/emmi-software-manager/*.py
 cd po
-msgmerge es.po tuquito-software-manager.pot -o es.po
-msgmerge pt.po tuquito-software-manager.pot -o pt.po
+msgmerge es.po emmi-software-manager.pot -o es.po
+msgmerge pt.po emmi-software-manager.pot -o pt.po

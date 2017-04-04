@@ -1,11 +1,11 @@
-Source: tuquito-software-manager
+Source: emmi-software-manager
 Section: admin
 Priority: optional
-Maintainer: Mario Colque <mario@tuquito.org.ar>
+Maintainer: Mario Colque <mario@emmi.org.ar>
 Build-Depends: debhelper (>= 5)
 Standards-Version: 3.7.2
 
-Package: tuquito-software-manager
+Package: emmi-software-manager
 Architecture: all
 Depends: python (>= 2.4), python (<< 3), python-gtk2, python-aptdaemon, python-webkit, python-imaging, libjs-jquery, python-pkg-resources
 Description: Tuquito Software Manager

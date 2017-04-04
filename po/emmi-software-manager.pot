@@ -1,271 +1,271 @@
-# Spanish translations for emmi-software-manager.
-# Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the emmi-software-manager package.
-# Mario Colque <mario@emmi.org.ar>, 2010.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: emmi-software-manager\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-29 18:26-0300\n"
-"PO-Revision-Date: 2010-06-30 20:48-0300\n"
-"Last-Translator: Mario Colque <mario@emmi.org.ar>\n"
-"Language-Team: Spanish\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: usr/lib/emmi/emmi-software-manager/aptd_client.py:14
 #, python-format
 msgid "Installing %s"
-msgstr "Instalando %s"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/aptd_client.py:17
 #, python-format
 msgid "Removing %s"
-msgstr "Eliminando %s"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:45
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:281
 msgid "Software Manager"
-msgstr "Gestor de programas"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:46
 msgid "Install new applications"
-msgstr "Instalar nuevas aplicaciones"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:111
 #, python-format
 msgid "%s (running in the background)"
-msgstr "%s (ejecutándose en segundo plano)"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:174
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:179
 #, python-format
 msgid "%d ongoing actions"
-msgstr "%d acciones en curso"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:176
 #, python-format
 msgid "%d ongoing action"
-msgstr "%d acción en curso"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:207
 #, python-format
 msgid "Cancel the task: %s"
-msgstr "Cancelar la tarea: %s"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:219
 msgid "Setting up"
-msgstr "Configurando"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:219
 msgid "Waiting"
-msgstr "Esperando"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:219
 msgid "Waiting for medium"
-msgstr "Esperando el medio"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:219
 msgid "Waiting for config file prompt"
-msgstr "Esperando por el diálogo de configuración de archivo"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:219
 msgid "Waiting for lock"
-msgstr "Esperando para bloquear"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:219
 msgid "Running"
-msgstr "Ejecutando"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:219
 msgid "Loading cache"
-msgstr "Cargando caché"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:219
 msgid "Downloading"
-msgstr "Descargando"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:219
 msgid "Committing"
-msgstr "Aplicando"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:219
 msgid "Cleaning up"
-msgstr "Limpiando"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:219
 msgid "Resolving dependencies"
-msgstr "Resolviendo dependencias"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:219
 msgid "Finished"
-msgstr "Finalizado"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:219
 msgid "Cancelling"
-msgstr "Cancelando"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "No role set"
-msgstr "No se han asignado roles"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Installing package"
-msgstr "Instalando paquete"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Installing file"
-msgstr "Instalando archivo"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Upgrading package"
-msgstr "Actualiazando paquete"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Upgrading system"
-msgstr "Actualizando el sistema"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Updating cache"
-msgstr "Actualizando caché"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Removing package"
-msgstr "Eliminando paquete"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Committing package"
-msgstr "Empaquetando paquete"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Adding vendor key file"
-msgstr "Agregando "
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Removing vendor key"
-msgstr "Eliminando"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Adding repository"
-msgstr "Agregando repositorio"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Adding vendor key from keyserver"
-msgstr "Agregando clave desde el servidor de claves"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Enabling distribution component"
-msgstr "Habilitando componente de la distribución"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Fixing broken dependencies"
-msgstr "Resolviendo dependencias rotas"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:227
 msgid "Fixing incomplete installations"
-msgstr "Resolviendo instalaciones incompletas"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:292
 msgid "_File"
-msgstr "_Archivo"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:296
 msgid "Close"
-msgstr "Cerrar"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:300
 msgid "_Edit"
-msgstr "_Editar"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:304
 msgid "Preferences"
-msgstr "Preferencias"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:308
 msgid "Search in packages summary (slower search)"
-msgstr "Buscar en los paquetes de la recopilación (búsqueda más lenta)"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:312
 msgid "Search in packages description (even slower search)"
-msgstr "Buscar en la descripción de los paquetes (búsqueda aún más lenta)"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:316
 msgid "Open links using the web browser"
-msgstr "Abrir enlaces usando el navegador web"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:327
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:537
 msgid "Account information"
-msgstr "Información de la cuenta"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:334
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:526
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:528
 msgid "Software sources"
-msgstr "Orígenes de software"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:338
 msgid "_View"
-msgstr "_Ver"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:342
 msgid "Available packages"
-msgstr "Paquetes disponibles"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:346
 msgid "Installed packages"
-msgstr "Paquetes instalados"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:353
 msgid "_Help"
-msgstr "_Ayuda"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:357
 msgid "About"
-msgstr "Acerca de"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:388
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:398
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:736
 msgid "Categories"
-msgstr "Categorías"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:389
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:399
 msgid "Select a category..."
-msgstr "Seleccione una categoría..."
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:421
 msgid "Active tasks:"
-msgstr "Tareas activas:"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:538
 msgid "Your community account"
-msgstr "Tu cuenta en la comunidad"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:540
 msgid "Enter your account info to post comments"
-msgstr "Escribe la información de tu cuenta para enviar comentarios"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:542
 msgid "Username:"
-msgstr "Usuario:"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:543
 msgid "Password:"
-msgstr "Contraseña:"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:553
 msgid "Message"
-msgstr "Mensaje"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:554
 msgid "<big><b>You need a user account</b></big>"
-msgstr "<big><b>Necesitas una cuenta de usuario</b></big>"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:555
 msgid ""
@@ -274,103 +274,99 @@ msgid ""
 "information</b>.\n"
 "What want you do?"
 msgstr ""
-"Para comentar necesita estar registrado.\n"
-"Si ya tiene una cuenta introduzca sus datos en: <b>Editar > Información de "
-"la cuenta</b>.\n"
-"¿Qué desea hacer?"
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:556
 msgid "I'm not registered but want do it"
-msgstr "No estoy registrado pero quiero hacerlo"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:557
 msgid "I have an account, I will add my data"
-msgstr "Tengo una cuenta, voy a agregar mis datos"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:593
 msgid "Icon"
-msgstr "Icono"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:600
 msgid "Application"
-msgstr "Aplicación"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:616
 msgid "Task"
-msgstr "Tarea"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:619
 msgid "Status"
-msgstr "Estado"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:622
 msgid "Progress"
-msgstr "Progreso"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:689
 msgid "Screenshot"
-msgstr "Captura de pantalla"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:699
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1098
 msgid "Website"
-msgstr "Sitio web"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:706
 msgid "Comments"
-msgstr "Comentarios"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:737
 msgid "Featured"
-msgstr "Destacados"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:740
 msgid "Accessories"
-msgstr "Accesorios"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:742
 msgid "Access"
-msgstr "Acceso Universal"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:745
 msgid "Education"
-msgstr "Educación"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:748
 msgid "Fonts"
-msgstr "Tipografías"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:751
 msgid "Games"
-msgstr "Juegos"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:752
 msgid "Board games"
-msgstr "Juegos de mesa"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:754
 msgid "First-person shooters"
-msgstr "Tiradores en primera persona"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:756
 msgid "Real-time strategy"
-msgstr "Estrategia en tiempo real"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:758
 msgid "Turn-based strategy"
-msgstr "Estrategia por turnos"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:760
 msgid "Emulators"
-msgstr "Emuladores"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:762
 msgid "Simulation and racing"
-msgstr "Simulación y carreras"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:765
 msgid "Graphics"
-msgstr "Gráficos"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:767
 msgid "3D"
@@ -378,23 +374,23 @@ msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:769
 msgid "Drawing"
-msgstr "Dibujo"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:771
 msgid "Photography"
-msgstr "Fotografía"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:773
 msgid "Publishing"
-msgstr "Publicación"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:775
 msgid "Scanning"
-msgstr "Escanear"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:777
 msgid "Viewers"
-msgstr "Visores"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:780
 msgid "Internet"
@@ -406,7 +402,7 @@ msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:783
 msgid "Email"
-msgstr "Correo electrónico"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:785
 msgid "Chat"
@@ -414,27 +410,27 @@ msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:787
 msgid "File sharing"
-msgstr "Compartidores de archivos"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:790
 msgid "Office"
-msgstr "Oficina"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:791
 msgid "Science"
-msgstr "Ciencia"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:793
 msgid "Sound and video"
-msgstr "Sonido y vídeo"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:794
 msgid "Players"
-msgstr "Reproductores"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:796
 msgid "Editors"
-msgstr "Editores"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:798
 msgid "Multimedia"
@@ -442,114 +438,114 @@ msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:801
 msgid "Themes and tweaks"
-msgstr "Temas y ajustes"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:804
 msgid "System tools"
-msgstr "Herramientas del sistema"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:807
 msgid "Programming"
-msgstr "Programación"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:809
 msgid "Other"
-msgstr "Otros"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:876
 #, python-format
 msgid "%d packages"
-msgstr "%d paquetes"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:975
 msgid "Search results"
-msgstr "Resultados de búsqueda"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1021
 #, python-format
 msgid "%s (removed)"
-msgstr "%s (removido)"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1023
 #, python-format
 msgid "%s (installed)"
-msgstr "%s (instalado)"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1028
 msgid "Version:"
-msgstr "Versión:"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1029
 msgid "Size:"
-msgstr "Tamaño:"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1030
 msgid "Impact on packages:"
-msgstr "Inciden en paquetes:"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1032
 msgid "Loading score..."
-msgstr "Cargando puntaje..."
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1033
 msgid "votes"
-msgstr "votos"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1034
 msgid "Very bad"
-msgstr "Muy malo"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1035
 msgid "Not that bad"
-msgstr "No es tan malo"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1036
 msgid "Average"
-msgstr "Promedio"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1037
 msgid "Good"
-msgstr "Bueno"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1038
 msgid "Excellent"
-msgstr "Excelente"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1039
 msgid "Error loading data"
-msgstr "Error al cargar los datos"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1040
 msgid "Just now"
-msgstr "Justo ahora"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1041
 msgid "More..."
-msgstr "Más..."
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1044
 msgid "Comment"
-msgstr "Comentar"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1045
 msgid "reviews"
-msgstr "comentarios"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1046
 msgid "Send"
-msgstr "Enviar"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1047
 msgid "Loading reviews..."
-msgstr "Cargando comentarios..."
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1048
 msgid "Reviews"
-msgstr "Comentarios"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1057
 msgid "This is due to possible problems with your Internet connection."
-msgstr "Esto es debido a posibles problemas con su conexión a Internet."
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1067
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1078
@@ -574,29 +570,27 @@ msgstr ""
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1088
 #, python-format
 msgid "%(localSize)s of disk space freed"
-msgstr "%(localSize)s de espacio liberado en el disco"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1090
 #, python-format
 msgid "%(localSize)s of disk space required"
-msgstr "%(localSize)s de espacio requerido en el disco"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1093
 #, python-format
 msgid "%(downloadSize)s to download, %(localSize)s of disk space freed"
 msgstr ""
-"%(downloadSize)s a descargar, %(localSize)s de espacio liberado en el disco"
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1095
 #, python-format
 msgid "%(downloadSize)s to download, %(localSize)s of disk space required"
 msgstr ""
-"%(downloadSize)s a descargar, %(localSize)s de espacio requerido en el disco"
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1102
 msgid "Remove"
-msgstr "Eliminar"
+msgstr ""
 
 #: usr/lib/emmi/emmi-software-manager/emmi-software-manager.py:1103
 msgid "Install"
-msgstr "Instalar"
+msgstr ""

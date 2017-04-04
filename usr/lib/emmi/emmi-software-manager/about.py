@@ -4,8 +4,8 @@
 """
  Gestor de programas 1.3
  Copyright (C) 2011
- Author: Mario Colque <mario@tuquito.org.ar>
- Tuquito Team! - www.tuquito.org.ar
+ Author: Mario Colque <mario@emmi.org.ar>
+ Tuquito Team! - www.emmi.org.ar
 
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ import gtk
 class About:
 	def __init__(self):
 		self.glade = gtk.Builder()
-		self.glade.add_from_file('/usr/lib/tuquito/tuquito-software-manager/about.glade')
+		self.glade.add_from_file('/usr/lib/emmi/emmi-software-manager/about.glade')
 		self.window = self.glade.get_object('about')
 		self.glade.connect_signals(self)
 		self.window.show()

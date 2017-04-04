@@ -46,10 +46,10 @@ install: build
 	dh_clean -k 
 	dh_installdirs
 
-	# Add here commands to install the package into debian/tuquito-software-manager.
-	#$(MAKE) install DESTDIR=$(CURDIR)/debian/tuquito-software-manager
-	mkdir -p $(CURDIR)/debian/tuquito-software-manager
-	cp -r $(CURDIR)/usr $(CURDIR)/debian/tuquito-software-manager/
+	# Add here commands to install the package into debian/emmi-software-manager.
+	#$(MAKE) install DESTDIR=$(CURDIR)/debian/emmi-software-manager
+	mkdir -p $(CURDIR)/debian/emmi-software-manager
+	cp -r $(CURDIR)/usr $(CURDIR)/debian/emmi-software-manager/
 
 # Build architecture-independent files here.
 binary-indep: build install

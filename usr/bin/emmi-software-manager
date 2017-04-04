@@ -1,0 +1,3 @@
+#!/bin/bash
+/usr/lib/emmi/emmi-software-manager/emmi-software-manager.py &
+exit 0

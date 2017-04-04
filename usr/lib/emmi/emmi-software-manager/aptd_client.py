@@ -3,7 +3,7 @@ import aptdaemon, sys, gettext
 from aptdaemon.client import AptClient
 
 # i18n
-gettext.install("tuquito-software-manager", "/usr/share/tuquito/locale")
+gettext.install("emmi-software-manager", "/usr/share/emmi/locale")
 
 if len(sys.argv) == 3:
     operation = sys.argv[1]
@@ -11,10 +11,10 @@ if len(sys.argv) == 3:
     aptd_client = AptClient()
     if operation == "install":
         transaction = aptd_client.install_packages([package])
-        transaction.set_meta_data(tuquito_label=_("Installing %s") % package)
+        transaction.set_meta_data(emmi_label=_("Installing %s") % package)
     elif operation == "remove":
         transaction = aptd_client.remove_packages([package])
-        transaction.set_meta_data(tuquito_label=_("Removing %s") % package)
+        transaction.set_meta_data(emmi_label=_("Removing %s") % package)
     else:
         print "Invalid operation: %s" % operation
         sys.exit(1)

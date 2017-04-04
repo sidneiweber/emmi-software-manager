@@ -27,7 +27,7 @@
                 <property name="receives_default">True</property>
                 <property name="has_tooltip">True</property>
                 <property name="use_action_appearance">False</property>
-                <property name="uri">http://tuquito.org.ar/usuarios.html</property>
+                <property name="uri">http://emmi.org.ar/usuarios.html</property>
                 <child>
                   <widget class="GtkHBox" id="hbox2">
                     <property name="visible">True</property>
@@ -523,7 +523,7 @@
       <widget class="GtkImage" id="image1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="pixbuf">/usr/lib/tuquito/tuquito-software-manager/data/splash.png</property>
+        <property name="pixbuf">/usr/lib/emmi/emmi-software-manager/data/splash.png</property>
       </widget>
     </child>
   </widget>
@@ -575,14 +575,14 @@
                 </child>
                 <child>
                   <widget class="GtkLinkButton" id="linkbutton1">
-                    <property name="label" translatable="yes">http://tuquito.org.ar/usuarios.html</property>
+                    <property name="label" translatable="yes">http://emmi.org.ar/usuarios.html</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="has_tooltip">True</property>
                     <property name="use_action_appearance">False</property>
                     <property name="relief">none</property>
-                    <property name="uri">http://tuquito.org.ar/usuarios.html</property>
+                    <property name="uri">http://emmi.org.ar/usuarios.html</property>
                   </widget>
                   <packing>
                     <property name="expand">True</property>

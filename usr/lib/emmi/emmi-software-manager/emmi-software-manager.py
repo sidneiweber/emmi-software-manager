@@ -4,8 +4,8 @@
 """
  Gestor de programas 1.3
  Copyright (C) 2011
- Author: Mario Colque <mario@tuquito.org.ar>
- Tuquito Team! - www.tuquito.org.ar
+ Author: Mario Colque <mario@emmi.org.ar>
+ Emmi Team! - www.emmi.org.ar
 
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -38,13 +38,13 @@ from widgets.searchentry import SearchEntry
 from user import home
 import base64
 
-# Don't let tuquito-software-manager run as root
+# Don't let emmi-software-manager run as root
 if os.getuid() == 0:
-    print "The Tuquito Software Manager should not be run as root. Please run it in user mode."
+    print "The Emmi Software Manager should not be run as root. Please run it in user mode."
     sys.exit(1)
 
 # i18n
-gettext.install("tuquito-software-manager", "/usr/share/tuquito/locale")
+gettext.install("emmi-software-manager", "/usr/share/emmi/locale")
 
 # i18n for menu item
 menuName = _("Software Manager")
@@ -74,7 +74,7 @@ COMMERCIAL_APPS = ["chromium-browser"]
 class Splash(threading.Thread):
 	def __init__(self):
 		threading.Thread.__init__(self)
-		gladefile = "/usr/lib/tuquito/tuquito-software-manager/tuquito-software-manager.glade"
+		gladefile = "/usr/lib/emmi/emmi-software-manager/emmi-software-manager.glade"
 		wTree = gtk.glade.XML(gladefile, "welcome")
 		self.window = wTree.get_widget("welcome")
 
@@ -116,8 +116,8 @@ class TransactionLoop(threading.Thread):
 						num_transactions += 1
 						transaction = client.get_transaction(tid, error_handler=lambda x: True)
 						label = _("%s (running in the background)") % self.get_role_description(transaction)
-						if "tuquito_label" in transaction.meta_data.keys():
-							label = transaction.meta_data["tuquito_label"]
+						if "emmi_label" in transaction.meta_data.keys():
+							label = transaction.meta_data["emmi_label"]
 
 						sum_progress += transaction.progress
 
@@ -146,8 +146,8 @@ class TransactionLoop(threading.Thread):
 							iter_to_be_removed = iter
 							iter = model.iter_next(iter)
 							model.remove(iter_to_be_removed)
-							if "tuquito_pkgname" in transaction.meta_data.keys():
-								pkg_name = transaction.meta_data["tuquito_pkgname"]
+							if "emmi_pkgname" in transaction.meta_data.keys():
+								pkg_name = transaction.meta_data["emmi_pkgname"]
 								cache = apt.Cache()
 								new_pkg = cache[pkg_name]
 								# Update packages
@@ -290,10 +290,10 @@ class Application():
 		self.add_packages()
 
 		# Build the GUI
-		gladefile = "/usr/lib/tuquito/tuquito-software-manager/tuquito-software-manager.glade"
+		gladefile = "/usr/lib/emmi/emmi-software-manager/emmi-software-manager.glade"
 		wTree = gtk.glade.XML(gladefile, "main_window")
 		wTree.get_widget("main_window").set_title(_("Software Manager"))
-		wTree.get_widget("main_window").set_icon_from_file("/usr/lib/tuquito/tuquito-software-manager/logo.svg")
+		wTree.get_widget("main_window").set_icon_from_file("/usr/lib/emmi/emmi-software-manager/logo.svg")
 		wTree.get_widget("main_window").connect("delete_event", self.close_application)
 
 		self.transaction_loop = TransactionLoop(self, self.packages, wTree)
@@ -344,7 +344,7 @@ class Application():
 
 		if os.path.exists("/usr/bin/software-properties-gtk") or os.path.exists("/usr/bin/software-properties-kde"):
 			sourcesMenuItem = gtk.ImageMenuItem(gtk.STOCK_PREFERENCES)
-			sourcesMenuItem.set_image(gtk.image_new_from_file("/usr/lib/tuquito/tuquito-software-manager/data/software-properties.png"))
+			sourcesMenuItem.set_image(gtk.image_new_from_file("/usr/lib/emmi/emmi-software-manager/data/software-properties.png"))
 			sourcesMenuItem.get_child().set_text(_("Software sources"))
 			sourcesMenuItem.connect("activate", self.open_repositories)
 			editSubmenu.append(sourcesMenuItem)
@@ -398,7 +398,7 @@ class Application():
 
 		# Build the category browsers
 		self.browser = webkit.WebView()
-		template = open("/usr/lib/tuquito/tuquito-software-manager/data/templates/CategoriesView.html").read()
+		template = open("/usr/lib/emmi/emmi-software-manager/data/templates/CategoriesView.html").read()
 		subs = {'header': _("Categories")}
 		subs['select'] = _("Select a category...")
 		html = string.Template(template).safe_substitute(subs)
@@ -408,7 +408,7 @@ class Application():
 		wTree.get_widget("scrolled_categories").add(self.browser)
 
 		self.browser2 = webkit.WebView()
-		template = open("/usr/lib/tuquito/tuquito-software-manager/data/templates/CategoriesView.html").read()
+		template = open("/usr/lib/emmi/emmi-software-manager/data/templates/CategoriesView.html").read()
 		subs = {'header': _("Categories")}
 		subs['select'] = _("Select a category...")
 		html = string.Template(template).safe_substitute(subs)
@@ -457,7 +457,7 @@ class Application():
 		config.set("search", "search_in_description", self.prefs["search_in_description"])
 		config.add_section("general")
 		config.set("general", "external_browser", self.prefs["external_browser"])
-		config.write(open(home + "/.tuquito/tuquito-software-manager/tuquito-software-manager.conf", 'w'))
+		config.write(open(home + "/.emmi/emmi-software-manager/emmi-software-manager.conf", 'w'))
 		self.prefs = self.read_configuration()
 		if self.model_filter is not None:
 			self.model_filter.refilter()
@@ -475,7 +475,7 @@ class Application():
 		config.set("filter", "installed_packages_visible", self.prefs["installed_packages_visible"])
 		config.add_section("general")
 		config.set("general", "external_browser", self.prefs["external_browser"])
-		config.write(open(home + "/.tuquito/tuquito-software-manager/tuquito-software-manager.conf", 'w'))
+		config.write(open(home + "/.emmi/emmi-software-manager/emmi-software-manager.conf", 'w'))
 		self.prefs = self.read_configuration()
 		if self.searchentry.get_text() != "":
 			self.show_search_results(self.searchentry.get_text())
@@ -490,13 +490,13 @@ class Application():
 		config.add_section("search")
 		config.set("search", "search_in_summary", self.prefs["search_in_summary"])
 		config.set("search", "search_in_description", self.prefs["search_in_description"])
-		config.write(open(home + "/.tuquito/tuquito-software-manager/tuquito-software-manager.conf", 'w'))
+		config.write(open(home + "/.emmi/emmi-software-manager/emmi-software-manager.conf", 'w'))
 		self.prefs = self.read_configuration()
 
 	def read_configuration(self, conf=None):
 		# Lee la configuración
 		config = ConfigParser.ConfigParser()
-		config.read(home + "/.tuquito/tuquito-software-manager/account.conf")
+		config.read(home + "/.emmi/emmi-software-manager/account.conf")
 		prefs = {}
 		#Read account info
 		try:
@@ -507,7 +507,7 @@ class Application():
 			prefs["password"] = ""
 
 		config = ConfigParser.ConfigParser()
-		config.read(home + "/.tuquito/tuquito-software-manager/tuquito-software-manager.conf")
+		config.read(home + "/.emmi/emmi-software-manager/emmi-software-manager.conf")
 		#Read filter info
 		try:
 			prefs["available_packages_visible"] = config.getboolean("filter", "available_packages_visible")
@@ -545,33 +545,33 @@ class Application():
 	def close_window(self, widget, window):
 		window.hide()
 
-	def open_account_info(self, widget):
-		gladefile = "/usr/lib/tuquito/tuquito-software-manager/tuquito-software-manager.glade"
-		wTree = gtk.glade.XML(gladefile, "window_account")
-		wTree.get_widget("window_account").set_title(_("Account information"))
-		wTree.get_widget("label1").set_label("<b>%s</b>" % _("Your community account"))
-		wTree.get_widget("label1").set_use_markup(True)
-		wTree.get_widget("label2").set_label("<i><small>%s</small></i>" % _("Enter your account info to post comments"))
-		wTree.get_widget("label2").set_use_markup(True)
-		wTree.get_widget("label3").set_label(_("Username:"))
-		wTree.get_widget("label4").set_label(_("Password:"))
-		wTree.get_widget("entry_username").set_text(self.prefs["username"])
-		wTree.get_widget("entry_password").set_text(base64.b64decode(self.prefs["password"]))
-		wTree.get_widget("close_button").connect("clicked", self.close_window, wTree.get_widget("window_account"))
-		wTree.get_widget("save_button").connect("clicked", self.update_account_info, wTree)
-		wTree.get_widget("window_account").show_all()
+	#def open_account_info(self, widget):
+	#	gladefile = "/usr/lib/emmi/emmi-software-manager/emmi-software-manager.glade"
+	#	wTree = gtk.glade.XML(gladefile, "window_account")
+	#	wTree.get_widget("window_account").set_title(_("Account information"))
+	#	wTree.get_widget("label1").set_label("<b>%s</b>" % _("Your community account"))
+	#	wTree.get_widget("label1").set_use_markup(True)
+	#	wTree.get_widget("label2").set_label("<i><small>%s</small></i>" % _("Enter your account info to post comments"))
+	#	wTree.get_widget("label2").set_use_markup(True)
+	#	wTree.get_widget("label3").set_label(_("Username:"))
+	#	wTree.get_widget("label4").set_label(_("Password:"))
+	#	wTree.get_widget("entry_username").set_text(self.prefs["username"])
+	#	wTree.get_widget("entry_password").set_text(base64.b64decode(self.prefs["password"]))
+	#	wTree.get_widget("close_button").connect("clicked", self.close_window, wTree.get_widget("window_account"))
+	#	wTree.get_widget("save_button").connect("clicked", self.update_account_info, wTree)
+	#	wTree.get_widget("window_account").show_all()
 
-	def show_account_message(self):
-		gladefile = "/usr/lib/tuquito/tuquito-software-manager/tuquito-software-manager.glade"
-		wTree = gtk.glade.XML(gladefile, "account_message")
-		wTree.get_widget("account_message").set_title(_("Message"))
-		wTree.get_widget("label1").set_markup(_("<big><b>You need a user account</b></big>"))
-		wTree.get_widget("label2").set_markup(_("To comment you need to be registered.\nIf you already have an account just enter your data in: <b>Edit > Account information</b>.\nWhat want you do?"))
-		wTree.get_widget("label3").set_label(_("I'm not registered but want do it"))
-		wTree.get_widget("label4").set_label(_("I have an account, I will add my data"))
-		wTree.get_widget("linkbutton1").connect("clicked", self.close_window, wTree.get_widget("account_message"))
-		wTree.get_widget("button2").connect("clicked", self.add_data_account, wTree.get_widget("account_message"))
-		wTree.get_widget("account_message").show_all()
+	#def show_account_message(self):
+	#	gladefile = "/usr/lib/emmi/emmi-software-manager/emmi-software-manager.glade"
+	#	wTree = gtk.glade.XML(gladefile, "account_message")
+	#	wTree.get_widget("account_message").set_title(_("Message"))
+	#	wTree.get_widget("label1").set_markup(_("<big><b>You need a user account</b></big>"))
+	#	wTree.get_widget("label2").set_markup(_("To comment you need to be registered.\nIf you already have an account just enter your data in: <b>Edit > Account information</b>.\nWhat want you do?"))
+	#	wTree.get_widget("label3").set_label(_("I'm not registered but want do it"))
+	#	wTree.get_widget("label4").set_label(_("I have an account, I will add my data"))
+	#	wTree.get_widget("linkbutton1").connect("clicked", self.close_window, wTree.get_widget("account_message"))
+	#	wTree.get_widget("button2").connect("clicked", self.add_data_account, wTree.get_widget("account_message"))
+	#	wTree.get_widget("account_message").show_all()
 
 	def add_data_account(self, widget, window):
 		self.close_window(widget, window)
@@ -580,19 +580,19 @@ class Application():
 	def close_window(self, widget, window):
 		window.hide()
 
-	def update_account_info(self, widteg, data=None):
-		config = ConfigParser.ConfigParser()
-		config.add_section("account")
-		username = data.get_widget("entry_username").get_text()
-		password = base64.b64encode(data.get_widget("entry_password").get_text())
-		config.set("account", "username", username)
-		config.set("account", "password", password)
-		config.write(open(home + "/.tuquito/tuquito-software-manager/account.conf", 'w'))
-		self.prefs = self.read_configuration()
-		data.get_widget("window_account").hide()
+	#def update_account_info(self, widteg, data=None):
+	#	config = ConfigParser.ConfigParser()
+	#	config.add_section("account")
+	#	username = data.get_widget("entry_username").get_text()
+	#	password = base64.b64encode(data.get_widget("entry_password").get_text())
+	#	config.set("account", "username", username)
+	#	config.set("account", "password", password)
+	#	config.write(open(home + "/.emmi/emmi-software-manager/account.conf", 'w'))
+	#	self.prefs = self.read_configuration()
+	#	data.get_widget("window_account").hide()
 
 	def open_about(self, widget):
-		os.system('/usr/lib/tuquito/tuquito-software-manager/about.py &')
+		os.system('/usr/lib/emmi/emmi-software-manager/about.py &')
 
 	def show_transactions(self, widget):
 		self.notebook.set_current_page(self.PAGE_TRANSACTIONS)
@@ -691,9 +691,9 @@ class Application():
 		package = self.current_package
 		if package != None:
 			if package.pkg.is_installed:
-				os.system("/usr/lib/tuquito/tuquito-software-manager/aptd_client.py remove %s &" % package.pkg.name)
+				os.system("/usr/lib/emmi/emmi-software-manager/aptd_client.py remove %s &" % package.pkg.name)
 			else:
-				os.system("/usr/lib/tuquito/tuquito-software-manager/aptd_client.py install %s &" % package.pkg.name)
+				os.system("/usr/lib/emmi/emmi-software-manager/aptd_client.py install %s &" % package.pkg.name)
 
 	def on_screenshot_clicked(self):
 		package = self.current_package
@@ -715,7 +715,7 @@ class Application():
 	def on_comment_clicked(self):
 		package = self.current_package
 		if package != None:
-			url = "http://apps.tuquito.org.ar/comment.php?name=" + package.pkg.name + "&limit=false"
+			url = "http://apps.emmi.org.ar/comment.php?name=" + package.pkg.name + "&limit=false"
 			self.websiteBrowser.open(url)
 			self.navigation_bar.add_with_id(_("Comments"), self.navigate, self.NAVIGATION_WEBSITE, "website")
 
@@ -749,74 +749,74 @@ class Application():
 		self.categories = []
 		self.root_category = Category(_("Categories"), "applications-other", None, None, self.categories)
 		featured = Category(_("Featured"), "gtk-about", None, self.root_category, self.categories)
-		featured.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/featured.list")
+		featured.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/featured.list")
 
 		Category(_("Accessories"), "applications-utilities", ("accessories", "utils"), self.root_category, self.categories)
 
 		subcat = Category(_("Access"), "access", None, self.root_category, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/access.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/access.list")
 
 		subcat = Category(_("Education"), "applications-accessories", ("education", "math"), self.root_category, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/education.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/education.list")
 
 		subcat = Category(_("Fonts"), "applications-fonts", None, self.root_category, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/fonts.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/fonts.list")
 
 		games = Category(_("Games"), "applications-games", ("games"), self.root_category, self.categories)
 		subcat = Category(_("Board games"), "applications-games", None, games, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/games-board.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/games-board.list")
 		subcat = Category(_("First-person shooters"), "applications-games", None, games, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/games-fps.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/games-fps.list")
 		subcat = Category(_("Real-time strategy"), "applications-games", None, games, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/games-rts.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/games-rts.list")
 		subcat = Category(_("Turn-based strategy"), "applications-games", None, games, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/games-tbs.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/games-tbs.list")
 		subcat = Category(_("Emulators"), "applications-games", None, games, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/games-emulators.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/games-emulators.list")
 		subcat = Category(_("Simulation and racing"), "applications-games", None, games, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/games-simulations.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/games-simulations.list")
 
 		graphics = Category(_("Graphics"), "applications-graphics", ("graphics"), self.root_category, self.categories)
-		graphics.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/graphics.list")
+		graphics.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/graphics.list")
 		subcat = Category(_("3D"), "applications-graphics", None, graphics, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/graphics-3d.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/graphics-3d.list")
 		subcat = Category(_("Drawing"), "applications-graphics", None, graphics, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/graphics-drawing.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/graphics-drawing.list")
 		subcat = Category(_("Photography"), "applications-graphics", None, graphics, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/graphics-photography.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/graphics-photography.list")
 		subcat = Category(_("Publishing"), "applications-graphics", None, graphics, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/graphics-publishing.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/graphics-publishing.list")
 		subcat = Category(_("Scanning"), "applications-graphics", None, graphics, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/graphics-scanning.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/graphics-scanning.list")
 		subcat = Category(_("Viewers"), "applications-graphics", None, graphics, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/graphics-viewers.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/graphics-viewers.list")
 
 		internet = Category(_("Internet"), "applications-internet", ("mail", "web", "net"), self.root_category, self.categories)
 		subcat = Category(_("Web"), "applications-internet", None, internet, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/internet-web.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/internet-web.list")
 		subcat = Category(_("Email"), "applications-internet", None, internet, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/internet-email.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/internet-email.list")
 		subcat = Category(_("Chat"), "applications-internet", None, internet, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/internet-chat.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/internet-chat.list")
 		subcat = Category(_("File sharing"), "applications-internet", None, internet, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/internet-filesharing.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/internet-filesharing.list")
 
 		Category(_("Office"), "applications-office", ("office", "editors"), self.root_category, self.categories)
 		Category(_("Science"), "applications-science", ("science", "math"), self.root_category, self.categories)
 
 		soundvideo = Category(_("Sound and video"), "applications-multimedia", ("multimedia", "video"), self.root_category, self.categories)
 		subcat = Category(_("Players"), "applications-multimedia", None, soundvideo, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/sound-video-players.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/sound-video-players.list")
 		subcat = Category(_("Editors"), "applications-multimedia", None, soundvideo, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/sound-video-editors.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/sound-video-editors.list")
 		subcat = Category(_("Multimedia"), "applications-multimedia", None, soundvideo, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/sound-video-other.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/sound-video-other.list")
 
 		subcat = Category(_("Themes and tweaks"), "preferences-other", None, self.root_category, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/themes-tweaks.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/themes-tweaks.list")
 
 		subcat = Category(_("System tools"), "applications-system", ("system", "admin"), self.root_category, self.categories)
-		subcat.matchingPackages = self.file_to_array("/usr/lib/tuquito/tuquito-software-manager/categories/system-tools.list")
+		subcat.matchingPackages = self.file_to_array("/usr/lib/emmi/emmi-software-manager/categories/system-tools.list")
 
 		Category(_("Programming"), "applications-development", ("devel"), self.root_category, self.categories)
 
@@ -942,22 +942,22 @@ class Application():
 	def find_fallback_icon(self, package):
 		icon_path = None
 		if package.pkg.is_installed:
-			icon_path = "/usr/lib/tuquito/tuquito-software-manager/data/installed.png"
+			icon_path = "/usr/lib/emmi/emmi-software-manager/data/installed.png"
 		else:
-			icon_path = "/usr/lib/tuquito/tuquito-software-manager/data/available.png"
+			icon_path = "/usr/lib/emmi/emmi-software-manager/data/available.png"
 		return icon_path
 
 	def find_app_icon_alternative(self, package):
 		icon_path = None
 		if package.pkg.is_installed:
-			icon_path = "/usr/share/tuquito/tuquito-software-manager/installed/%s" % package.name
+			icon_path = "/usr/share/emmi/emmi-software-manager/installed/%s" % package.name
 			if os.path.exists(icon_path + ".png"):
 				icon_path = icon_path + ".png"
 			elif os.path.exists(icon_path + ".xpm"):
 				icon_path = icon_path + ".xpm"
 			else:
 				# Else, default to generic icons
-				icon_path = "/usr/lib/tuquito/tuquito-software-manager/data/installed.png"
+				icon_path = "/usr/lib/emmi/emmi-software-manager/data/installed.png"
 		else:
 			# Try the Icon theme first
 			theme = gtk.icon_theme_get_default()
@@ -966,32 +966,32 @@ class Application():
 				if iconInfo and os.path.exists(iconInfo.get_filename()):
 					icon_path = iconInfo.get_filename()
 			else:
-				# Try tuquito-icons then
-				icon_path = "/usr/share/tuquito/tuquito-software-manager/icons/%s" % package.name
+				# Try emmi-icons then
+				icon_path = "/usr/share/emmi/emmi-software-manager/icons/%s" % package.name
 				if os.path.exists(icon_path + ".png"):
 					icon_path = icon_path + ".png"
 				elif os.path.exists(icon_path + ".xpm"):
 					icon_path = icon_path + ".xpm"
 				else:
 					# Else, default to generic icons
-					icon_path = "/usr/lib/tuquito/tuquito-software-manager/data/available.png"
+					icon_path = "/usr/lib/emmi/emmi-software-manager/data/available.png"
 		return icon_path
 
 	def find_app_icon(self, package):
 		icon_path = None
 		if package.pkg.is_installed:
-			icon_path = "/usr/share/tuquito/tuquito-software-manager/installed/%s" % package.name
+			icon_path = "/usr/share/emmi/emmi-software-manager/installed/%s" % package.name
 		else:
-			icon_path = "/usr/share/tuquito/tuquito-software-manager/icons/%s" % package.name
+			icon_path = "/usr/share/emmi/emmi-software-manager/icons/%s" % package.name
 		if os.path.exists(icon_path + ".png"):
 			icon_path = icon_path + ".png"
 		elif os.path.exists(icon_path + ".xpm"):
 			icon_path = icon_path + ".xpm"
 		else:
 			if package.pkg.is_installed:
-				icon_path = "/usr/lib/tuquito/tuquito-software-manager/data/installed.png"
+				icon_path = "/usr/lib/emmi/emmi-software-manager/data/installed.png"
 			else:
-				icon_path = "/usr/lib/tuquito/tuquito-software-manager/data/available.png"
+				icon_path = "/usr/lib/emmi/emmi-software-manager/data/available.png"
 		return icon_path
 
 	def show_search_results(self, terms):
@@ -1058,7 +1058,7 @@ class Application():
 		return False
 
 	def show_package(self, package):
-		account_file = os.path.join(home, '.tuquito/tuquito-software-manager/account.conf')
+		account_file = os.path.join(home, '.emmi/emmi-software-manager/account.conf')
 		if not os.path.exists(account_file):
 			self.show_account_message()
 		theme = gtk.icon_theme_get_default()
@@ -1068,9 +1068,9 @@ class Application():
 			fileName = iconInfo.get_filename()
 			baseName = os.path.basename(fileName)
 			if '.xpm' in fileName:
-				svgFile = os.path.join(home, '.tuquito/tuquito-software-manager/apps/' + baseName.replace('.xpm', '.svg'))
+				svgFile = os.path.join(home, '.emmi/emmi-software-manager/apps/' + baseName.replace('.xpm', '.svg'))
 				if not os.path.exists(svgFile):
-					os.system('mkdir -p ' + os.path.join(home, ".tuquito/tuquito-software-manager/apps/"))
+					os.system('mkdir -p ' + os.path.join(home, ".emmi/emmi-software-manager/apps/"))
 					os.system('cp ' + fileName + ' ' + svgFile)
 				icon = svgFile
 			elif iconInfo and os.path.exists(fileName):
@@ -1175,13 +1175,13 @@ class Application():
 			subs['version'] = package.pkg.candidate.version
 			subs['action'] = 'install'
 
-		template = open("/usr/lib/tuquito/tuquito-software-manager/data/templates/PackageView.html").read()
+		template = open("/usr/lib/emmi/emmi-software-manager/data/templates/PackageView.html").read()
 		html = string.Template(template).safe_substitute(subs)
 		self.packageBrowser.load_html_string(html, "file:/")
 		self.navigation_bar.add_with_id(subs['appname'], self.navigate, self.NAVIGATION_ITEM, package)
 
 if __name__ == "__main__":
-	os.system("mkdir -p " + home + "/.tuquito/tuquito-software-manager/")
+	os.system("mkdir -p " + home + "/.emmi/emmi-software-manager/")
 	splash = Splash()
 	splash.start()
 	Application()
