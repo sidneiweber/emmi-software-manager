@@ -40,7 +40,7 @@ import base64
 
 # Don't let emmi-software-manager run as root
 if os.getuid() == 0:
-    print "The Emmi Software Manager should not be run as root. Please run it in user mode."
+    print("The Emmi Software Manager should not be run as root. Please run it in user mode.")
     sys.exit(1)
 
 # i18n
@@ -205,12 +205,12 @@ class TransactionLoop(threading.Thread):
 					import traceback
 					traceback.print_exc(file=sys.stdout)
 					self.apt_daemon = aptdaemon.client.get_aptdaemon()
-					print "A problem occured but the transaction loop was kept running"
+					print("A problem occured but the transaction loop was kept running")
 			del model
 			return
 		except Exception, detail:
 			print detail
-			print "End of transaction loop..."
+			print("End of transaction loop...")
 
 	def menuPopup(self, widget, event):
 		if event.button == 3:
