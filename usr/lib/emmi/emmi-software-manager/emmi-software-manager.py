@@ -337,10 +337,10 @@ class Application():
 
 		editSubmenu.append(prefsMenuItem)
 
-		accountMenuItem = gtk.ImageMenuItem(gtk.STOCK_PREFERENCES)
-		accountMenuItem.get_child().set_text(_("Account information"))
-		accountMenuItem.connect("activate", self.open_account_info)
-		editSubmenu.append(accountMenuItem)
+		#accountMenuItem = gtk.ImageMenuItem(gtk.STOCK_PREFERENCES)
+		#accountMenuItem.get_child().set_text(_("Account information"))
+		#accountMenuItem.connect("activate", self.open_account_info)
+		#editSubmenu.append(accountMenuItem)
 
 		if os.path.exists("/usr/bin/software-properties-gtk") or os.path.exists("/usr/bin/software-properties-kde"):
 			sourcesMenuItem = gtk.ImageMenuItem(gtk.STOCK_PREFERENCES)
@@ -1058,9 +1058,9 @@ class Application():
 		return False
 
 	def show_package(self, package):
-		account_file = os.path.join(home, '.emmi/emmi-software-manager/account.conf')
-		if not os.path.exists(account_file):
-			self.show_account_message()
+		#account_file = os.path.join(home, '.emmi/emmi-software-manager/account.conf')
+		#if not os.path.exists(account_file):
+		#	self.show_account_message()
 		theme = gtk.icon_theme_get_default()
 		self.current_package = package
 		if theme.has_icon(package.pkg.name):
