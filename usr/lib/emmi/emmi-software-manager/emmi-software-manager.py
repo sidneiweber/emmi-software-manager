@@ -337,10 +337,10 @@ class Application():
 
 		editSubmenu.append(prefsMenuItem)
 
-		accountMenuItem = gtk.ImageMenuItem(gtk.STOCK_PREFERENCES)
-		accountMenuItem.get_child().set_text(_("Account information"))
-		accountMenuItem.connect("activate", self.open_account_info)
-		editSubmenu.append(accountMenuItem)
+		#accountMenuItem = gtk.ImageMenuItem(gtk.STOCK_PREFERENCES)
+		#accountMenuItem.get_child().set_text(_("Account information"))
+		#accountMenuItem.connect("activate", self.open_account_info)
+		#editSubmenu.append(accountMenuItem)
 
 		if os.path.exists("/usr/bin/software-properties-gtk") or os.path.exists("/usr/bin/software-properties-kde"):
 			sourcesMenuItem = gtk.ImageMenuItem(gtk.STOCK_PREFERENCES)
