@@ -1058,9 +1058,9 @@ class Application():
 		return False
 
 	def show_package(self, package):
-		account_file = os.path.join(home, '.emmi/emmi-software-manager/account.conf')
-		if not os.path.exists(account_file):
-			self.show_account_message()
+		#account_file = os.path.join(home, '.emmi/emmi-software-manager/account.conf')
+		#if not os.path.exists(account_file):
+		#	self.show_account_message()
 		theme = gtk.icon_theme_get_default()
 		self.current_package = package
 		if theme.has_icon(package.pkg.name):
