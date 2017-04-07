@@ -4,9 +4,9 @@
     <title></title>
     <meta charset="UTF-8">
     <script src="/usr/share/javascript/jquery/jquery.min.js"></script>
-    <script src="/usr/lib/tuquito/tuquito-software-manager/data/templates/jquery-ui.custom.min.js"></script>
-    <script src="/usr/lib/tuquito/tuquito-software-manager/data/templates/jquery.ui.stars.min.js"></script>
-    <link rel="stylesheet" href="/usr/lib/tuquito/tuquito-software-manager/data/templates/jquery.ui.stars.min.css">
+    <script src="/usr/lib/emmi/emmi-software-manager/data/templates/jquery-ui.custom.min.js"></script>
+    <script src="/usr/lib/emmi/emmi-software-manager/data/templates/jquery.ui.stars.min.js"></script>
+    <link rel="stylesheet" href="/usr/lib/emmi/emmi-software-manager/data/templates/jquery.ui.stars.min.css">
     <script>
     $(function() {
         if ("$action" == "install") { //no esta instalado
@@ -21,7 +21,7 @@
             $("#loading").html('<div id="error">$timeout_error [<a onclick="$(\'#why\').fadeIn();return false;">?</a>]</div><div id="why" class="hidden">$why</div>').fadeIn();
         },10000);
 
-        $.getJSON("http://apps.tuquito.org.ar/rating.php", {name: "$pkgname"}, function(data) {
+        $.getJSON("http://apps.emmi.org.ar/rating.php", {name: "$pkgname"}, function(data) {
             clearTimeout(time);
             score = data.rating;
             rates = data.votes;
@@ -35,7 +35,7 @@
 	            showTitles: true,
 	            captionEl: $caption,
 	            callback: function(ui, type, value) {
-	                $.getJSON("http://apps.tuquito.org.ar/rating.php", {rating: value, name: "$pkgname"});
+	                $.getJSON("http://apps.emmi.org.ar/rating.php", {rating: value, name: "$pkgname"});
 	                $("#rates").text(rates + 1);
 	                curval = (score + parseInt(value))/(rates + 1)
 	                $ratings.stars("select", parseInt(curval)).fadeIn();
@@ -48,7 +48,7 @@
         var timer = setTimeout(function(){
             $("#loadingr").html('<div id="error">$timeout_error [<a href="#" onclick="$(\'#whyr\').fadeIn();return false;">?</a>]</div><div id="whyr" class="hidden">$why</div>').fadeIn();
         },10000);
-        $.get("http://apps.tuquito.org.ar/comment.php", {name: "$pkgname"}, function(data) {
+        $.get("http://apps.emmi.org.ar/comment.php", {name: "$pkgname"}, function(data) {
             clearTimeout(timer);
             data = data.replace(/##More#/gi, '$more');
             data = data.replace(/##Nick#/gi, '$nick');
@@ -58,7 +58,7 @@
             $("#loadingr").hide();
             $("#data").html(data).fadeIn();
             $("img.avatar").error(function() {
-                $(this).attr("src", "http://tuquito.org.ar/uploads/avatar/nn.png");
+                $(this).attr("src", "http://emmi.org.ar/uploads/avatar/nn.png");
             });
         });
     });
@@ -70,11 +70,11 @@
         if (comment == "")
             return false;
         $commentText.attr("disabled", "disabled");
-        $commentError.html('<img src="/usr/lib/tuquito/tuquito-software-manager/data/loading.gif" id="load_form">');
+        $commentError.html('<img src="/usr/lib/emmi/emmi-software-manager/data/loading.gif" id="load_form">');
         var time = setTimeout(function() {
             $commentError.html('<span id="error">$timeout_error</span>').fadeIn();
         },10000);
-        $.getJSON("http://apps.tuquito.org.ar/comment.php",{
+        $.getJSON("http://apps.emmi.org.ar/comment.php",{
             name: "$pkgname",
             nick: "$nick",
             pass: "$pass",
@@ -88,7 +88,7 @@
                 counter = $("p#counter > span");
                 comments = parseInt(counter.text());
                 counter.text(comments + 1);
-                $("#comments").prepend('<div id="comment" class="new_comment"><img onerror="this.src=\'http://tuquito.org.ar/uploads/avatar/nn.png\'" class="avatar" src="' + data.avatar + '" width="40"><span class="date"><b>$nick</b> · <small>$just_now</small></span><div class="text">' + data.comment + '</div><div class="fix"></div></div>');
+                $("#comments").prepend('<div id="comment" class="new_comment"><img onerror="this.src=\'http://emmi.org.ar/uploads/avatar/nn.png\'" class="avatar" src="' + data.avatar + '" width="40"><span class="date"><b>$nick</b> · <small>$just_now</small></span><div class="text">' + data.comment + '</div><div class="fix"></div></div>');
                 $commentText.val("").removeAttr("disabled");
                 $commentError.text("");
                 $("#comment_form").hide();
@@ -124,7 +124,7 @@
 }
 .hidden { display: none }
 html {
-    background: url('/usr/lib/tuquito/tuquito-software-manager/data/bg.png') repeat-x top;
+    background: url('/usr/lib/emmi/emmi-software-manager/data/bg.png') repeat-x top;
     font-family: "Ubuntu", Lucida Sans Unicode, Arial, Helvetica, Sans-Serif;
     height: 100%;
     color: #4B4B4B;
@@ -133,7 +133,7 @@ html {
     text-shadow: white 1px 1px 0px;
 }
 body {
-    background: url('/usr/lib/tuquito/tuquito-software-manager/data/clouds.png') top right no-repeat;
+    background: url('/usr/lib/emmi/emmi-software-manager/data/clouds.png') top right no-repeat;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -182,8 +182,8 @@ h2 {
     z-index: 100;
 }
 .btn:hover { opacity: 1 }
-#install { background: url('/usr/lib/tuquito/tuquito-software-manager/data/install.png') top left no-repeat; }
-#remove { background: url('/usr/lib/tuquito/tuquito-software-manager/data/uninstall.png') top left no-repeat; }
+#install { background: url('/usr/lib/emmi/emmi-software-manager/data/install.png') top left no-repeat; }
+#remove { background: url('/usr/lib/emmi/emmi-software-manager/data/uninstall.png') top left no-repeat; }
 a {
     color: #294f88;
     cursor: pointer;
@@ -237,7 +237,7 @@ a:hover { text-decoration: underline; }
 	border-radius: 3px;
 	box-shadow: 0 2px 4px rgba(0,0,0,0.55),inset 0 1px 0 #fff,0 0 1px #999;
 	padding: 0;
-	background: url(/usr/lib/tuquito/tuquito-software-manager/data/loading.gif) no-repeat 50% 50%;
+	background: url(/usr/lib/emmi/emmi-software-manager/data/loading.gif) no-repeat 50% 50%;
 	min-height: 72px;
 	min-width: 72px;
 }
@@ -294,20 +294,9 @@ img.avatar {
     <h2>$summary<br>$website <a href="#data">$reviews</a></h2>
     <div id="content">
         <div class="data">
-            <div id="loading">
-                <img src="/usr/lib/tuquito/tuquito-software-manager/data/loading.gif"><br>$loading_txt
-            </div>
-            <form id="ratings" class="hidden">
-                <input type="radio" name="rate" value="1" title="$vbad" id="rate1"> <label for="rate1">$vbad</label>
-                <input type="radio" name="rate" value="2" title="$ntbad" id="rate2"> <label for="rate2">$ntbad</label>
-                <input type="radio" name="rate" value="3" title="$average" id="rate3"> <label for="rate3">$average</label>
-                <input type="radio" name="rate" value="4" title="$good" id="rate4"> <label for="rate4">$good</label>
-                <input type="radio" name="rate" value="5" title="$excellent" id="rate5"> <label for="rate5">$excellent</label>
-                <input type="submit" value="Rate it!">
-            </form>
 			<p id="description">
 				<a href="javascript:action_screenshot_clicked()" class="screenshot">
-					<img id="screenshot_thumbnail_img" class="screenshot_thumbnail" onerror="this.src='/usr/lib/tuquito/tuquito-software-manager/data/no_screenshot.png'" src="http://community.linuxmint.com/thumbnail.php?w=180&pic=/var/www/community.linuxmint.com/img/screenshots/$pkgname.png">
+					<img id="screenshot_thumbnail_img" class="screenshot_thumbnail" onerror="this.src='/usr/lib/emmi/emmi-software-manager/data/no_screenshot.png'" src="http://community.linuxmint.com/thumbnail.php?w=180&pic=/var/www/community.linuxmint.com/img/screenshots/$pkgname.png">
 				</a>
 				$description
 			</p>
@@ -318,11 +307,6 @@ img.avatar {
     	        <b>$txtImpact</b> $packagesinfo
 	        </p>
         </div>
-        <p id="data">
-            <div id="loadingr">
-                <img src="/usr/lib/tuquito/tuquito-software-manager/data/loading.gif"><br>$loading_comments
-            </div>
-        </p>
     </div>
 </body>
 </html>

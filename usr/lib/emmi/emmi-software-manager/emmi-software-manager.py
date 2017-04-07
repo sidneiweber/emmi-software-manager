@@ -200,16 +200,16 @@ class TransactionLoop(threading.Thread):
 					self.progressbar.set_text(progressText)
 					self.progressbar.set_fraction(fraction)
 					gtk.gdk.threads_leave()
-				except Exception, detail:
-					print detail
+				except Exception as detail:
+					print(detail)
 					import traceback
 					traceback.print_exc(file=sys.stdout)
 					self.apt_daemon = aptdaemon.client.get_aptdaemon()
 					print("A problem occured but the transaction loop was kept running")
 			del model
 			return
-		except Exception, detail:
-			print detail
+		except Exception as detail:
+			print(detail)
 			print("End of transaction loop...")
 
 	def menuPopup(self, widget, event):
@@ -404,8 +404,8 @@ class Application():
 		html = string.Template(template).safe_substitute(subs)
 		self.browser.load_html_string(html, "file:/")
 		self.browser.connect("load-finished", self._on_load_finished)
-	 	self.browser.connect('title-changed', self._on_title_changed)
-		wTree.get_widget("scrolled_categories").add(self.browser)
+                self.browser.connect('title-changed', self._on_title_changed)
+                wTree.get_widget("scrolled_categories").add(self.browser)
 
 		self.browser2 = webkit.WebView()
 		template = open("/usr/lib/emmi/emmi-software-manager/data/templates/CategoriesView.html").read()
@@ -413,7 +413,7 @@ class Application():
 		subs['select'] = _("Select a category...")
 		html = string.Template(template).safe_substitute(subs)
 		self.browser2.load_html_string(html, "file:/")
-	 	self.browser2.connect('title-changed', self._on_title_changed)
+                self.browser2.connect('title-changed', self._on_title_changed)
 		wTree.get_widget("scrolled_mixed_categories").add(self.browser2)
 
 		self.packageBrowser = webkit.WebView()
@@ -428,7 +428,7 @@ class Application():
 		wTree.get_widget("scrolled_website").add(self.websiteBrowser)
 
 		# kill right click menus in webkit views
-	        self.browser.connect("button-press-event", lambda w, e: e.button == 3)
+                self.browser.connect("button-press-event", lambda w, e: e.button == 3)
 		self.browser2.connect("button-press-event", lambda w, e: e.button == 3)
 		self.packageBrowser.connect("button-press-event", lambda w, e: e.button == 3)
 
@@ -685,7 +685,7 @@ class Application():
 	def on_category_clicked(self, name):
 		for category in self.categories:
 		    if category.name == name:
-			self.show_category(category)
+                        self.show_category(category)
 
 	def on_button_clicked(self):
 		package = self.current_package
